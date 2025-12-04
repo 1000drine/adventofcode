@@ -7,6 +7,6 @@
         <property key="TEST_SRC">solutions/src/test/java</property>
         <property key="TEST_RES">solutions/src/test/resources</property>
         <property key="PACKAGE">dev/vinyard/adventofcode</property>
-        <property key="SESSION_ID">$aocEnvironment.getProperty('AOC_SESSION_ID')</property>
+        <property key="SESSION_ID">53616c7465645f5fe0f7d4c7aaf9d7c5bc137f2fdf954576a84be81cf615306d9c0eb874ebb7a083c149ae5c59cd537e20182b87b6d9522a830b34c6481e0d2b</property>
     </properties>
 </environment>
