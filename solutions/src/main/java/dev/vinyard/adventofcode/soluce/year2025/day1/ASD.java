@@ -21,6 +21,13 @@ public class ASD {
                     .filter(rotation -> dial.getPosition() == 0)
                     .count();
         }
+
+        public Long solution2() {
+            Dial dial = new Dial(50);
+            return rotations.stream()
+                    .mapToLong(dial::rotate)
+                    .sum();
+        }
     }
 
     public static class Dial {

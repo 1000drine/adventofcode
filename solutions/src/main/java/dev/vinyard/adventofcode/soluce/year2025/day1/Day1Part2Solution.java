@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @AdventOfCodeSolution(year = 2025, day = 1, part = 2, description = "Secret Entrance", link = "https://adventofcode.com/2025/day/1", tags = "unsolved")
-public class Day1Part2Solution implements Solution<Object> {
+public class Day1Part2Solution implements Solution<Long> {
 
     /**
     * <h2>--- Part Two ---</h2>
@@ -38,14 +38,15 @@ public class Day1Part2Solution implements Solution<Object> {
     * <p>Using password method 0x434C49434B, <b>what is the password to open the door?</b></p>
     */
     @Override
-    public Object solve(String input) {
+    public Long solve(String input) {
         CharStream charStream = CharStreams.fromString(input);
 
         SolutionLexer lexer = new SolutionLexer(charStream);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SolutionParser parser = new SolutionParser(tokens);
-        // TODO get the ASD from the parser
 
-        return null;
+        ASD.Root root = parser.root().out;
+
+        return root.solution2();
     }
 }
