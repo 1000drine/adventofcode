@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
 
 public class FileReader {
@@ -14,5 +15,11 @@ public class FileReader {
         Path filePath = Path.of(url.toURI());
 
         return Files.readString(filePath);
+    }
+
+    public static List<String> readFileToList(String fileName) throws IOException, URISyntaxException {
+        URL url = Optional.ofNullable(FileReader.class.getClassLoader().getResource(fileName))
+                .orElseThrow(() -> new FileNotFoundException("Fichier non trouvé."));
+        return Files.readAllLines(Path.of(url.toURI()));
     }
 }

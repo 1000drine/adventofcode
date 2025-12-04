@@ -2,16 +2,12 @@ package dev.vinyard.adventofcode.soluce.year2025.day1;
 
 import dev.vinyard.aoc.plugins.solution.api.Solution;
 import dev.vinyard.aoc.plugins.solution.api.annotation.AdventOfCodeSolution;
-import dev.vinyard.adventofcode.utils.FileReader;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 @AdventOfCodeSolution(year = 2025, day = 1, part = 1, description = "Secret Entrance", link = "https://adventofcode.com/2025/day/1", tags = "unsolved")
-public class Day1Part1Solution implements Solution<Object> {
+public class Day1Part1Solution implements Solution<Long> {
 
     /**
     * <h2>--- Day 1: Secret Entrance ---</h2>
@@ -60,14 +56,15 @@ public class Day1Part1Solution implements Solution<Object> {
     * <p>Analyze the rotations in your attached document. <b>What's the actual password to open the door?</b></p>
     */
     @Override
-    public Object solve(String input) {
+    public Long solve(String input) {
         CharStream charStream = CharStreams.fromString(input);
 
         SolutionLexer lexer = new SolutionLexer(charStream);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SolutionParser parser = new SolutionParser(tokens);
-        // TODO get the ASD from the parser
 
-        return null;
+        ASD.Root root = parser.root().out;
+
+        return root.solution1();
     }
 }
